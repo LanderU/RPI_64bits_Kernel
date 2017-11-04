@@ -34,7 +34,7 @@ make -j 2
 mkdir 64_modules
 INSTALL_MOD_PATH=64_modules make modules_install
 
-# #Remove symlinks
+#Remove symlinks
 rm -rf 64_modules/lib/modules/4.9.47-rt37-v8+/source
 rm -rf 64_modules/lib/modules/4.9.47-rt37-v8+/build
 
