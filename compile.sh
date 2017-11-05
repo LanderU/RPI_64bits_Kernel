@@ -34,10 +34,14 @@ make -j 2
 mkdir 64_modules
 INSTALL_MOD_PATH=64_modules make modules_install
 
-# #Remove symlinks
+#Remove symlinks
 rm -rf 64_modules/lib/modules/4.9.47-rt37-v8+/source
 rm -rf 64_modules/lib/modules/4.9.47-rt37-v8+/build
 
-# #Create .tar.gz
-# mkdir 64bits_kernel
-# mv /deploy .
+#Create .tar.gz
+mkdir 64bits_kernel && cd 64bits_kernel
+mv /deploy .
+cp ../arch/arm64/boot/Image kernel8.img
+cp ../arch/arm64/boot/dts/broadcom/bcm2710-rpi-3-b.dtb .
+cp -r ../64_modules .
+cd .. && tar cvzvfp 64bits_kernel.tar.gz 64_bits_kernel
