@@ -12,11 +12,11 @@ libncurses5-dev libncursesw5-dev ca-certificates \
 && rm -rf /var/lib/apt/lists/*
 
 #Clone Linux source
-git clone --single-branch -b rpi-4.9.y https://github.com/raspberrypi/linux
+git clone --single-branch -b rpi-4.14.y https://github.com/raspberrypi/linux
 
 cd linux
-# Checkout to 4.9.47
-git checkout 458ca52f1564938c158d271f45bce0bc6ede2b3f #URL: https://github.com/raspberrypi/linux/commit/458ca52f1564938c158d271f45bce0bc6ede2b3f
+# Checkout to 4.14.1
+git checkout 780a781dd6f1af9dfac15b8eeba1cb678c9fc380 #URL: https://github.com/raspberrypi/linux/commit/780a781dd6f1af9dfac15b8eeba1cb678c9fc380
 
 #Copy config file with PREEMPT-RT option enabled
 mv /PREEMPT-RT_defconfig .config
