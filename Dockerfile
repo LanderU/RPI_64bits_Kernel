@@ -4,10 +4,13 @@ MAINTAINER Lander Usategui lander.usategui@gmail.com
 
 WORKDIR /
 
+ARG KERNEL_VERSION=
 COPY compile.sh /
 COPY patch-4.9.65-rt57-rc2.patch.gz /
-COPY configFiles/PREEMPT-RT_defconfig /
+COPY patch-4.14.3-rt5.patch.gz /
+COPY configFiles/4.9.65-PREEMPT-RT_defconfig /
+COPY configFiles/4.14.3-PREEMPT-RT_defconfig /
 COPY deploy /
-RUN chmod +x compile.sh && ./compile.sh
+RUN chmod +x compile.sh && ./compile.sh ${KERNEL_VERSION}
 
 CMD ["bash"]
