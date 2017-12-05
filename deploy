@@ -8,7 +8,7 @@ function rtDeploy()
   cp kernel8.img /boot
   cp *.dtb /boot
   cp -r 64_modules/lib/firmware /lib
-  cp -r 64_modules/lib/modules/4.9.65-rt57-v8+ /lib/modules
+  cp -r 64_modules/lib/modules/* /lib/modules
   echo "kernel=kernel8.img" >> /boot/config.txt
   sed -i "1 s|$| dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0|" /boot/cmdline.txt
   echo "Done"
