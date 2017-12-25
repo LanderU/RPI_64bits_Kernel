@@ -23,7 +23,7 @@ if [ ${KERNEL_VERSION} == "4.9" ]; then
   git checkout 133e6ccf46f1704a4a680ef45565e970ac9a7f9c #URL: https://github.com/raspberrypi/linux/commit/133e6ccf46f1704a4a680ef45565e970ac9a7f9c
 
   #Copy config file with PREEMPT-RT option enabled
-  mv /PREEMPT-RT_defconfig .config
+  mv /4.9.65-PREEMPT-RT_defconfig .config
 
   #Patch the Kernel with PREEMPT-RT patches
   gunzip -d /patch-4.9.65-rt57-rc2.patch.gz
