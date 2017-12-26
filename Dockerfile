@@ -8,8 +8,8 @@ ARG KERNEL_VERSION=
 COPY compile.sh /
 COPY patch-4.9.65-rt57-rc2.patch.gz /
 COPY patch-4.14.3-rt5.patch.gz /
-COPY configFiles/4.9.65-PREEMPT-RT_defconfig /
-COPY configFiles/4.14.3-PREEMPT-RT_defconfig /
+COPY configFiles/4.9-PREEMPT-RT_defconfig /
+COPY configFiles/4.14-PREEMPT-RT_defconfig /
 COPY deploy /
 RUN chmod +x compile.sh && ./compile.sh ${KERNEL_VERSION}
 
