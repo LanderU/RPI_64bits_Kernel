@@ -57,8 +57,7 @@ elif [ ${KERNEL_VERSION} == "4.14" ]; then
 
   cd linux
   # Checkout to 4.14.3
-  git checkout ad17de1172db0bcb6c899a54beec3cdf839db450 #URL: https://github.com/raspberrypi/linux/commit/ad17de1172db0bcb6c899a54beec3cdf839db450
-
+  git checkout 7b3775017f4e6b87dfd2c7f63d1eaf057948f31d #URL: https://github.com/raspberrypi/linux/commit/7b3775017f4e6b87dfd2c7f63d1eaf057948f31d
   #Copy config file with PREEMPT-RT option enabled
   mv /4.14-PREEMPT-RT_defconfig .config
 
