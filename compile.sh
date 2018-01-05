@@ -62,8 +62,8 @@ elif [ ${KERNEL_VERSION} == "4.14" ]; then
   mv /4.14-PREEMPT-RT_defconfig .config
 
   #Patch the Kernel with PREEMPT-RT patches
-  gunzip -d /patch-4.14.3-rt5.patch.gz
-  cat ../patch-4.14.3-rt5.patch | patch -p1
+  gunzip -d /patch-4.14.8-rt9.patch.gz
+  cat ../patch-4.14.8-rt9.patch | patch -p1
 
   #Necessary exports to compile
   export ARCH=arm64
@@ -75,8 +75,8 @@ elif [ ${KERNEL_VERSION} == "4.14" ]; then
   INSTALL_MOD_PATH=64_modules make modules_install
 
   #Remove symlinks
-  rm -rf 64_modules/lib/modules/4.14.3-rt5-v8+/source
-  rm -rf 64_modules/lib/modules/4.14.3-rt5-v8+/build
+  rm -rf 64_modules/lib/modules/4.14.8-rt9-v8+/source
+  rm -rf 64_modules/lib/modules/4.14.8-rt9-v8+/build
 
   #Create .tar.gz
   mkdir 64bits_kernel && cd 64bits_kernel
