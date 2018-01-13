@@ -56,14 +56,14 @@ elif [ ${KERNEL_VERSION} == "4.14" ]; then
   git clone -b rpi-4.14.y https://github.com/raspberrypi/linux
 
   cd linux
-  # Checkout to 4.14.3
-  git checkout 7b3775017f4e6b87dfd2c7f63d1eaf057948f31d #URL: https://github.com/raspberrypi/linux/commit/7b3775017f4e6b87dfd2c7f63d1eaf057948f31d
+  # Checkout to 4.14.12
+  git checkout 8d577afdee3540808302d9dc7a0a7be96c91178f #URL: https://github.com/raspberrypi/linux/commit/8d577afdee3540808302d9dc7a0a7be96c91178f
   #Copy config file with PREEMPT-RT option enabled
   mv /4.14-PREEMPT-RT_defconfig .config
 
   #Patch the Kernel with PREEMPT-RT patches
-  gunzip -d /patch-4.14.8-rt9.patch.gz
-  cat ../patch-4.14.8-rt9.patch | patch -p1
+  gunzip -d /patch-4.14.12-rt10.patch.gz
+  cat ../patch-4.14.12-rt10.patch | patch -p1
 
   #Necessary exports to compile
   export ARCH=arm64
