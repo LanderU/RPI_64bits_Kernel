@@ -56,14 +56,14 @@ elif [ ${KERNEL_VERSION} == "4.14" ]; then
   git clone -b rpi-4.14.y https://github.com/raspberrypi/linux
 
   cd linux
-  # Checkout to 4.14.12
-  git checkout 8d577afdee3540808302d9dc7a0a7be96c91178f #URL: https://github.com/raspberrypi/linux/commit/8d577afdee3540808302d9dc7a0a7be96c91178f
+  # Checkout to 4.14.15
+  git checkout a16134b082346b7e7c34f594a0763eafacdcea92 #URL: https://github.com/raspberrypi/linux/commit/a16134b082346b7e7c34f594a0763eafacdcea92
   #Copy config file with PREEMPT-RT option enabled
   mv /4.14-PREEMPT-RT_defconfig .config
 
   #Patch the Kernel with PREEMPT-RT patches
-  gunzip -d /patch-4.14.12-rt10.patch.gz
-  cat ../patch-4.14.12-rt10.patch | patch -p1
+  gunzip -d /patch-4.14.15-rt12.patch.gz
+  cat ../patch-4.14.15-rt12.patch | patch -p1
 
   #Necessary exports to compile
   export ARCH=arm64
@@ -75,8 +75,8 @@ elif [ ${KERNEL_VERSION} == "4.14" ]; then
   INSTALL_MOD_PATH=64_modules make modules_install
 
   #Remove symlinks
-  rm -rf 64_modules/lib/modules/4.14.8-rt9-v8+/source
-  rm -rf 64_modules/lib/modules/4.14.8-rt9-v8+/build
+  rm -rf 64_modules/lib/modules/4.14.15-rt12-v8+/source
+  rm -rf 64_modules/lib/modules/4.14.15-rt12-v8+/build
 
   #Create .tar.gz
   mkdir 64bits_kernel && cd 64bits_kernel
