@@ -62,8 +62,8 @@ elif [ ${KERNEL_VERSION} == "4.14" ]; then
   mv /4.14-PREEMPT-RT_defconfig .config
 
   #Patch the Kernel with PREEMPT-RT patches
-  gunzip -d /patch-4.14.15-rt12.patch.gz
-  cat ../patch-4.14.15-rt12.patch | patch -p1
+  gunzip -d /patch-4.14.15-rt13.patch.gz
+  cat ../patch-4.14.15-rt13.patch | patch -p1
 
   #Necessary exports to compile
   export ARCH=arm64
