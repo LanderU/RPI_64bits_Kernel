@@ -75,8 +75,8 @@ elif [ ${KERNEL_VERSION} == "4.14" ]; then
   INSTALL_MOD_PATH=64_modules make modules_install
 
   #Remove symlinks
-  rm -rf 64_modules/lib/modules/4.14.15-rt12-v8+/source
-  rm -rf 64_modules/lib/modules/4.14.15-rt12-v8+/build
+  rm -rf 64_modules/lib/modules/4.14.15-rt13-v8+/source
+  rm -rf 64_modules/lib/modules/4.14.15-rt13-v8+/build
 
   #Create .tar.gz
   mkdir 64bits_kernel && cd 64bits_kernel
