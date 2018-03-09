@@ -24,3 +24,5 @@ git clone https://github.com/LanderU/RPI_64bits_Kernel
 cd RPI_64bits_Kernel
 docker build --build-arg KERNEL_VERSION=4.14 -t kernel4.14 .
 ```
+
+* https://github.com/raspberrypi/linux/tree/rpi-4.14.y-rt
