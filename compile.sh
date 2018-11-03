@@ -86,6 +86,22 @@ elif [ ${KERNEL_VERSION} == "4.14" ]; then
   cp -r ../64_modules .
   cd .. && tar cvzvfp 64bits_kernel.tar.gz 64_bits_kernel
 
+elif [ ${KERNEL_VERSION} == "4.19" ]; then
+
+  echo "It will compile version 4.19.X."
+  #Clone Linux source
+  git clone -b rpi-4.19.y https://github.com/raspberrypi/linux
+
+  cd linux
+
+  #Patch the Kernel with PREEMPT-RT patches
+  xz -d /patch-4.19-rt1.patch.xz
+  cat ../patch-4.19-rt1.patch | patch -p1
+
+  #Necessary exports to compile
+  export ARCH=arm64
+  export CROSS_COMPILE=aarch64-linux-gnu-
+
 else
   echo "No version found, remember, this script only can compile following versions: 4.9 and 4.14."
 fi
