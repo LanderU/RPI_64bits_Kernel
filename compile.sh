@@ -34,7 +34,7 @@ if [ ${KERNEL_VERSION} == "4.9" ]; then
   export CROSS_COMPILE=aarch64-linux-gnu-
 
   #Compile the kernel and modules
-  make -j 2
+  make -j `getconf _NPROCESSORS_ONLN`
   mkdir 64_modules
   INSTALL_MOD_PATH=64_modules make modules_install
 
@@ -70,7 +70,7 @@ elif [ ${KERNEL_VERSION} == "4.14" ]; then
   export CROSS_COMPILE=aarch64-linux-gnu-
 
   #Compile the kernel and modules
-  make -j 2
+  make -j `getconf _NPROCESSORS_ONLN`
   mkdir 64_modules
   INSTALL_MOD_PATH=64_modules make modules_install
 
@@ -101,6 +101,11 @@ elif [ ${KERNEL_VERSION} == "4.19" ]; then
   #Necessary exports to compile
   export ARCH=arm64
   export CROSS_COMPILE=aarch64-linux-gnu-
+
+  #Compile the kernel and modules
+  make -j `getconf _NPROCESSORS_ONLN`
+  mkdir 64_modules
+  INSTALL_MOD_PATH=64_modules make modules_install
 
 else
   echo "No version found, remember, this script only can compile following versions: 4.9 and 4.14."
