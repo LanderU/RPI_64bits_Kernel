@@ -93,6 +93,8 @@ elif [ ${KERNEL_VERSION} == "4.19" ]; then
   git clone -b rpi-4.19.y https://github.com/raspberrypi/linux
 
   cd linux
+  # Checkout to 4.19.1
+  git checkout 07a03b97b9ce2a6430344386eeab9b16283b893f #URL: https://github.com/raspberrypi/linux/commit/07a03b97b9ce2a6430344386eeab9b16283b893f
 
   #Patch the Kernel with PREEMPT-RT patches
   xz -d /patch-4.19-rt1.patch.xz
