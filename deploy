@@ -6,7 +6,7 @@
 function rtDeploy()
 {
   cp kernel8.img /boot
-  cp *.dtb /boot
+  cp ./*.dtb /boot
   cp -r 64_modules/lib/firmware /lib
   cp -r 64_modules/lib/modules/* /lib/modules
   echo "kernel=kernel8.img" >> /boot/config.txt
