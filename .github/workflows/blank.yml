@@ -9,9 +9,15 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: Install docker
+      run: sudo apt-get update && sudo apt-get install \
+                                    apt-transport-https \
+                                    ca-certificates \
+                                    curl \
+                                    software-properties-common -y && 
+                                    sudo add-apt-repository \
+                                       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+                                       $(lsb_release -cs) \
+                                       stable" &&
+                                       sudo apt-get update &&
+                                       sudo apt-get install docker-ce -y
